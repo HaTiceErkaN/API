@@ -29,4 +29,15 @@ private static ObjectMapper mapper;
 
 
     //2.method java objesini json dataya cevirir (serialization)
+
+    public static String  convertJavaObjectToJson (Object obj){
+        String jsonResult=null;
+        try {
+          jsonResult=  mapper.writeValueAsString(obj);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+return jsonResult;
+    }
+
 }
