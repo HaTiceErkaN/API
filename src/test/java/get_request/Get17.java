@@ -8,6 +8,7 @@ import pojos.DummyApiResponseBodyPojo;
 import utils.JsonUtil;
 
 import static io.restassured.RestAssured.*;
+import static org.junit.Assert.*;
 
 public class Get17 extends DummyRestapiBaseUrl {
 
@@ -63,6 +64,13 @@ public class Get17 extends DummyRestapiBaseUrl {
         message='Successfully! Record has been fetched.'}
         bu sekilde yazdirmasinin sebebi responseBodyPojo class'taki toString methodu. O olmadan yazdirsaydik objenin hash kodunu yazdirridi.
          */
+
+        assertEquals(responseBodyPojo.getStatus(),responseBody.getStatus());
+        assertEquals(responseBodyPojo.getMessage(),responseBody.getMessage());
+        assertEquals(responseBodyPojo.getData().getEmployee_name(),responseBody.getData().getEmployee_name());
+        assertEquals(responseBodyPojo.getData().getEmployee_age(),responseBody.getData().getEmployee_age());
+        assertEquals(responseBodyPojo.getData().getEmployee_salary(),responseBody.getData().getEmployee_salary());
+        assertEquals(responseBodyPojo.getData().getProfile_image(),responseBody.getData().getProfile_image());
 
     }
 }
